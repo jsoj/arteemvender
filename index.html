@@ -1,1036 +1,655 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sibele Oliveira | Transformando Times em Máquinas de Vendas</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<html class="scroll-smooth" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sibele Oliveira - Mentoria Corporativa | Máquina de Vendas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;family=EB+Garamond:ital,wght@0,500;0,600;1,500;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --cream: #F7EFE5;
-  --cream-dark: #EDE0CE;
-  --brown-deep: #1E0F06;
-  --brown-mid: #5C3317;
-  --gold: #C87432;
-  --gold-light: #E8952E;
-  --gold-pale: #F5D9B0;
-  --red: #C0392B;
-  --green: #27AE60;
-  --shadow: rgba(30,15,6,0.12);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--brown-deep);overflow-x:hidden}
-
-/* BAR */
-.bar{background:var(--gold);color:#fff;text-align:center;padding:10px 20px;font-size:.82rem;font-weight:600;letter-spacing:.04em;position:relative;z-index:100}
-#countdown{font-weight:700;font-size:1rem;letter-spacing:.1em}
-
-/* HEADER */
-header{background:var(--cream);border-bottom:1px solid var(--cream-dark);padding:16px 60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99;box-shadow:0 2px 20px var(--shadow)}
-.logo-text{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--brown-mid)}
-.logo-text em{color:var(--gold);font-style:normal}
-.header-cta{background:var(--gold);color:#fff;border:none;cursor:pointer;padding:10px 24px;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;transition:background .2s;text-decoration:none}
-.header-cta:hover{background:var(--gold-light)}
-
-/* HERO */
-.hero{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 60px;background:linear-gradient(135deg,var(--cream) 60%,var(--cream-dark) 100%);position:relative;overflow:hidden;gap:40px}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(200,116,50,.08) 0%,transparent 70%);pointer-events:none}
-.hero-badge{display:inline-block;background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:2px;margin-bottom:22px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.8vw,3.6rem);font-weight:700;line-height:1.1;color:var(--brown-deep);margin-bottom:22px}
-.hero h1 em{color:var(--gold);font-style:italic}
-.hero-sub{font-size:1rem;line-height:1.75;color:var(--brown-mid);max-width:480px;margin-bottom:32px}
-.hero-checks{list-style:none;margin-bottom:36px}
-.hero-checks li{display:flex;align-items:flex-start;gap:10px;margin-bottom:9px;font-size:.93rem;color:var(--brown-deep)}
-.hero-checks li::before{content:'✓';color:var(--gold);font-weight:700;font-size:1rem;flex-shrink:0;margin-top:1px}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#fff;padding:16px 36px;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 8px 30px rgba(200,116,50,.4)}
-.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 12px 40px rgba(200,116,50,.5)}
-.hero-note{margin-top:12px;font-size:.8rem;color:#9A7A5A}
-.hero-note strong{color:var(--red)}
-
-/* HERO STATS */
-.hero-right{display:flex;flex-direction:column;gap:16px}
-.hero-stat-card{background:#fff;border-radius:10px;padding:20px 24px;box-shadow:0 4px 20px var(--shadow);border-left:4px solid var(--gold);display:flex;align-items:center;gap:16px;transition:transform .2s}
-.hero-stat-card:hover{transform:translateX(4px)}
-.hs-icon{font-size:1.8rem;width:48px;text-align:center;flex-shrink:0}
-.hs-num{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--gold);line-height:1}
-.hs-label{font-size:.8rem;color:var(--brown-mid);margin-top:2px;line-height:1.4}
-
-/* SECTION */
-section{padding:80px 60px}
-.section-label{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,2.8vw,2.8rem);font-weight:700;color:var(--brown-deep);line-height:1.15;margin-bottom:16px}
-.section-title em{color:var(--gold);font-style:italic}
-.section-sub{font-size:.97rem;line-height:1.75;color:var(--brown-mid);max-width:640px;margin-bottom:52px}
-
-/* DOR */
-.dor-section{background:var(--brown-deep)}
-.dor-section .section-title{color:var(--cream)}
-.dor-section .section-sub{color:var(--gold-pale)}
-.dor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px}
-.dor-card{background:rgba(255,255,255,.05);border:1px solid rgba(200,116,50,.25);border-radius:10px;padding:26px;transition:border-color .2s,background .2s}
-.dor-card:hover{border-color:var(--gold);background:rgba(200,116,50,.08)}
-.dor-icon{font-size:1.8rem;margin-bottom:12px}
-.dor-card h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--gold-pale);margin-bottom:6px}
-.dor-card p{font-size:.85rem;color:#B89A7A;line-height:1.6}
-.dor-cta{text-align:center;padding-top:20px;border-top:1px solid rgba(200,116,50,.2)}
-.dor-cta p{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;color:var(--gold-pale);margin-bottom:22px}
-
-/* AUTORIDADE */
-.autoridade-section{background:var(--cream-dark)}
-.aut-layout{display:grid;grid-template-columns:320px 1fr;gap:60px;align-items:start}
-.aut-photo-box{width:100%;aspect-ratio:3/4;background:linear-gradient(145deg,var(--gold-pale),var(--cream-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:5rem;color:var(--gold);border:2px solid var(--gold);position:relative;overflow:hidden}
-.aut-photo-box img{width:100%;height:100%;object-fit:cover;border-radius:12px}
-.aut-seal{position:absolute;bottom:-16px;right:-16px;width:88px;height:88px;background:var(--gold);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-size:.62rem;font-weight:700;text-align:center;text-transform:uppercase;letter-spacing:.05em;border:3px solid #fff;box-shadow:0 6px 20px rgba(200,116,50,.5);line-height:1.3}
-.aut-seal strong{font-size:1.3rem;display:block;font-weight:800}
-.aut-right{padding-top:16px}
-.aut-name{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--gold);letter-spacing:.05em;margin-bottom:22px}
-.aut-bio{font-size:.93rem;line-height:1.8;color:var(--brown-mid);margin-bottom:28px}
-.aut-credentials{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
-.cred-pill{background:#fff;border:1px solid var(--gold-pale);color:var(--brown-mid);padding:5px 14px;border-radius:20px;font-size:.78rem;font-weight:500}
-.aut-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.aut-stat{text-align:center;padding:18px;background:#fff;border-radius:10px;box-shadow:0 2px 12px var(--shadow)}
-.aut-stat-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--gold);line-height:1}
-.aut-stat-label{font-size:.76rem;color:var(--brown-mid);margin-top:4px;line-height:1.4}
-
-/* METODOLOGIA */
-.metodologia-section{background:var(--cream)}
-.met-fases{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:56px}
-.met-fase{background:#fff;border-radius:12px;padding:28px;box-shadow:0 4px 20px var(--shadow);border-top:4px solid var(--gold);text-align:center;transition:transform .2s,box-shadow .2s}
-.met-fase:hover{transform:translateY(-4px);box-shadow:0 12px 40px var(--shadow)}
-.met-fase-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--gold-pale);line-height:1;margin-bottom:8px}
-.met-fase h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--brown-deep);margin-bottom:10px}
-.met-fase p{font-size:.85rem;color:var(--brown-mid);line-height:1.6}
-.met-pilares{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.pilar-card{background:var(--cream-dark);border-radius:10px;padding:24px;border-left:3px solid var(--gold);transition:background .2s}
-.pilar-card:hover{background:#fff}
-.pilar-card h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--brown-deep);margin-bottom:6px}
-.pilar-card p{font-size:.83rem;color:var(--brown-mid);line-height:1.6}
-
-/* ─── PROGRAMAS ─── */
-.programas-section{background:var(--brown-deep)}
-.programas-section .section-title{color:var(--cream)}
-.programas-section .section-sub{color:var(--gold-pale)}
-.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
-
-/* card base */
-.prog-card{border-radius:14px;padding:36px;position:relative;overflow:visible;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
-.prog-card:hover{transform:translateY(-6px)}
-
-/* variante 1 — Fundações */
-.prog-card.tier1{background:rgba(255,255,255,.06);border:1px solid rgba(200,116,50,.25);color:var(--cream)}
-.prog-card.tier1:hover{box-shadow:0 20px 60px rgba(0,0,0,.35)}
-
-/* variante 2 — Elite (destaque) */
-.prog-card.tier2{background:var(--gold);color:#fff;border:none;box-shadow:0 20px 60px rgba(200,116,50,.45);transform:scale(1.04)}
-.prog-card.tier2:hover{transform:scale(1.06) translateY(-4px);box-shadow:0 28px 70px rgba(200,116,50,.55)}
-
-/* variante 3 — Master */
-.prog-card.tier3{background:rgba(255,255,255,.06);border:1px solid rgba(200,116,50,.25);color:var(--cream)}
-.prog-card.tier3:hover{box-shadow:0 20px 60px rgba(0,0,0,.35)}
-
-.prog-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#fff;color:var(--brown-deep);font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:5px 16px;border-radius:20px;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.2)}
-.prog-card.tier1 .prog-badge,.prog-card.tier3 .prog-badge{background:rgba(255,255,255,.12);color:var(--gold-pale)}
-
-.prog-tag{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;opacity:.75}
-.prog-card.tier2 .prog-tag{color:rgba(255,255,255,.8)}
-.prog-card.tier1 .prog-tag,.prog-card.tier3 .prog-tag{color:var(--gold)}
-
-.prog-name{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;margin-bottom:6px}
-.prog-subtitle{font-size:.82rem;line-height:1.55;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.15);flex-grow:0}
-.prog-card.tier1 .prog-subtitle,.prog-card.tier3 .prog-subtitle{color:#B89A7A}
-.prog-card.tier2 .prog-subtitle{color:rgba(255,255,255,.85)}
-
-.prog-includes{list-style:none;margin-bottom:24px;flex-grow:1}
-.prog-includes li{display:flex;align-items:flex-start;gap:9px;margin-bottom:9px;font-size:.85rem;line-height:1.45}
-.prog-includes li span:first-child{flex-shrink:0;margin-top:1px}
-.prog-card.tier1 .prog-includes li,.prog-card.tier3 .prog-includes li{color:var(--cream)}
-.prog-card.tier2 .prog-includes li{color:#fff}
-.prog-card.tier1 .prog-includes li span:first-child,.prog-card.tier3 .prog-includes li span:first-child{color:var(--gold)}
-.prog-card.tier2 .prog-includes li span:first-child{color:rgba(255,255,255,.9)}
-
-.prog-price-block{margin-bottom:20px}
-.prog-encounters{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;opacity:.7}
-.prog-price{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;line-height:1}
-.prog-card.tier2 .prog-price{color:#fff}
-.prog-card.tier1 .prog-price,.prog-card.tier3 .prog-price{color:var(--gold-light)}
-.prog-price sub{font-size:1rem;vertical-align:middle;margin-right:4px}
-.prog-installment{font-size:.78rem;margin-top:4px;opacity:.75}
-
-.prog-guarantee{display:flex;align-items:center;gap:8px;font-size:.78rem;margin-bottom:16px;padding:10px 14px;border-radius:8px}
-.prog-card.tier2 .prog-guarantee{background:rgba(255,255,255,.2);color:#fff}
-.prog-card.tier1 .prog-guarantee,.prog-card.tier3 .prog-guarantee{background:rgba(39,174,96,.1);color:#7FCC9A;border:1px solid rgba(39,174,96,.25)}
-
-.btn-prog{width:100%;padding:14px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;border:none;transition:background .2s,transform .15s}
-.prog-card.tier2 .btn-prog{background:#fff;color:var(--gold);box-shadow:0 4px 16px rgba(0,0,0,.15)}
-.prog-card.tier2 .btn-prog:hover{background:var(--cream);transform:scale(1.02)}
-.prog-card.tier1 .btn-prog,.prog-card.tier3 .btn-prog{background:var(--gold);color:#fff}
-.prog-card.tier1 .btn-prog:hover,.prog-card.tier3 .btn-prog:hover{background:var(--gold-light)}
-
-.prog-footer-note{text-align:center;margin-top:40px;font-size:.85rem;color:rgba(245,217,176,.7);padding:20px;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid rgba(200,116,50,.15)}
-
-/* COMPARATIVO */
-.compare-section{background:var(--cream-dark)}
-.compare-table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px var(--shadow)}
-.compare-table th{background:var(--brown-deep);color:var(--cream);padding:16px 20px;font-size:.82rem;font-weight:600;text-align:center;letter-spacing:.06em;text-transform:uppercase}
-.compare-table th:first-child{text-align:left;width:38%}
-.compare-table th.highlight{background:var(--gold);color:#fff}
-.compare-table td{padding:14px 20px;font-size:.88rem;border-bottom:1px solid var(--cream-dark);text-align:center;color:var(--brown-mid)}
-.compare-table td:first-child{text-align:left;font-weight:500;color:var(--brown-deep)}
-.compare-table tr:last-child td{border-bottom:none}
-.compare-table tr:hover td{background:var(--cream)}
-.check-yes{color:var(--gold);font-size:1.1rem;font-weight:700}
-.check-no{color:#C5B4A0;font-size:1rem}
-.compare-table td.highlight-col{background:rgba(200,116,50,.05);font-weight:600;color:var(--brown-deep)}
-
-/* DEPOIMENTOS */
-.depo-section{background:var(--cream)}
-.depo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.depo-card{background:#fff;border-radius:12px;padding:28px;box-shadow:0 4px 20px var(--shadow);border-bottom:3px solid var(--gold);transition:transform .2s,box-shadow .2s}
-.depo-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px var(--shadow)}
-.depo-stars{color:var(--gold);font-size:1rem;margin-bottom:14px}
-.depo-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--brown-deep);line-height:1.65;margin-bottom:20px}
-.depo-author{display:flex;align-items:center;gap:12px}
-.depo-avatar{width:44px;height:44px;border-radius:50%;background:var(--gold-pale);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold);font-size:1rem;flex-shrink:0}
-.depo-name{font-size:.88rem;font-weight:600;color:var(--brown-deep)}
-.depo-role{font-size:.76rem;color:var(--brown-mid)}
-
-/* RESULTADOS */
-.result-section{background:linear-gradient(135deg,var(--gold) 0%,#A85C20 100%);color:#fff;text-align:center}
-.result-section .section-title{color:#fff}
-.result-section .section-sub{color:rgba(255,255,255,.85);margin:0 auto 52px}
-.result-nums{display:flex;justify-content:center;gap:56px;flex-wrap:wrap}
-.result-val{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:#fff;line-height:1}
-.result-label{font-size:.82rem;color:rgba(255,255,255,.8);margin-top:6px;max-width:140px}
-
-/* GARANTIA */
-.garantia-section{background:var(--cream)}
-.garantia-layout{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center;max-width:860px}
-.garantia-badge{width:160px;height:160px;border-radius:50%;flex-shrink:0;background:var(--brown-deep);border:4px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gold);text-align:center;padding:20px;box-shadow:0 8px 30px rgba(30,15,6,.2)}
-.garantia-badge .gdays{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;line-height:1}
-.garantia-badge .gtext{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--cream)}
-.garantia-content h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--brown-deep);margin-bottom:14px}
-.garantia-content p{font-size:.93rem;line-height:1.78;color:var(--brown-mid)}
-
-/* FAQ */
-.faq-section{background:var(--cream-dark)}
-.faq-list{max-width:720px}
-.faq-item{border-bottom:1px solid rgba(92,51,23,.15)}
-.faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;font-size:.93rem;font-weight:600;color:var(--brown-deep);list-style:none;gap:16px}
-.faq-q::-webkit-details-marker{display:none}
-.faq-arrow{color:var(--gold);font-size:1.1rem;transition:transform .3s;flex-shrink:0}
-details[open] .faq-arrow{transform:rotate(180deg)}
-.faq-a{font-size:.88rem;line-height:1.75;color:var(--brown-mid);padding:0 0 20px}
-
-/* CTA FINAL */
-.cta-section{background:var(--brown-deep);text-align:center;padding:100px 60px}
-.cta-section .section-title{color:var(--cream)}
-.cta-section .section-sub{color:var(--gold-pale);margin:0 auto 40px}
-.cta-cards{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
-.cta-mini{background:rgba(255,255,255,.05);border:1px solid rgba(200,116,50,.3);border-radius:10px;padding:24px 28px;text-align:left;cursor:pointer;transition:border-color .2s,background .2s;min-width:200px}
-.cta-mini:hover{border-color:var(--gold);background:rgba(200,116,50,.1)}
-.cta-mini.featured{border-color:var(--gold);background:rgba(200,116,50,.15)}
-.cta-mini-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--gold-pale);margin-bottom:4px}
-.cta-mini-price{font-size:.85rem;color:#9A7A5A}
-.cta-mini-price strong{color:var(--gold-light);font-size:1rem}
-.cta-trust{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
-.trust-item{display:flex;align-items:center;gap:6px;font-size:.78rem;color:#8A6A4A}
-
-/* MODAL */
-.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,5,2,.75);backdrop-filter:blur(6px);z-index:999;align-items:center;justify-content:center;padding:20px}
-.modal-overlay.open{display:flex}
-.modal{background:#fff;border-radius:16px;width:100%;max-width:540px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4);animation:slideUp .3s ease;max-height:90vh;overflow-y:auto}
-@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
-.modal-header{background:var(--brown-deep);padding:22px 28px;display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:2}
-.modal-header h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--cream)}
-.modal-header p{font-size:.8rem;color:var(--gold-pale);margin-top:4px}
-.modal-close{color:var(--gold-pale);font-size:1.6rem;cursor:pointer;line-height:1;background:none;border:none;margin-left:16px;flex-shrink:0}
-.modal-body{padding:24px 28px}
-.modal-plan-select{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
-.mps-btn{padding:12px 8px;border:2px solid var(--cream-dark);border-radius:8px;cursor:pointer;text-align:center;background:#fff;transition:border-color .2s,background .2s;font-family:'DM Sans',sans-serif}
-.mps-btn.active{border-color:var(--gold);background:var(--gold-pale)}
-.mps-btn-name{font-size:.8rem;font-weight:700;color:var(--brown-deep);margin-bottom:2px}
-.mps-btn-price{font-size:.72rem;color:var(--brown-mid)}
-.modal-summary{background:var(--cream);border-radius:10px;padding:14px 18px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center}
-.modal-summary-label{font-size:.82rem;color:var(--brown-mid)}
-.modal-summary-val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--gold)}
-.form-row{display:grid;gap:12px;margin-bottom:12px}
-.form-row-2{grid-template-columns:1fr 1fr}
-.form-group label{display:block;font-size:.76rem;font-weight:600;color:var(--brown-mid);margin-bottom:5px;letter-spacing:.04em;text-transform:uppercase}
-.form-group input,.form-group select{width:100%;padding:11px 13px;border:1.5px solid var(--cream-dark);border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--brown-deep);background:#fff;outline:none;transition:border-color .2s}
-.form-group input:focus,.form-group select:focus{border-color:var(--gold)}
-.modal-divider{display:flex;align-items:center;gap:12px;margin:16px 0;color:#B89A7A;font-size:.78rem}
-.modal-divider::before,.modal-divider::after{content:'';flex:1;height:1px;background:var(--cream-dark)}
-.card-icons{display:flex;gap:8px;margin-bottom:14px}
-.card-icon{background:var(--cream);border:1px solid var(--cream-dark);border-radius:4px;padding:3px 10px;font-size:.72rem;font-weight:700;color:var(--brown-mid);letter-spacing:.05em}
-.btn-pay{width:100%;padding:15px;background:var(--gold);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;transition:background .2s;display:flex;align-items:center;justify-content:center;gap:8px}
-.btn-pay:hover{background:var(--gold-light)}
-.modal-secure{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;font-size:.75rem;color:#9A7A5A}
-
-/* FOOTER */
-footer{background:#0D0600;color:#5A3F2A;padding:40px 60px;text-align:center;font-size:.82rem;line-height:1.8}
-footer strong{color:var(--gold)}
-footer a{color:var(--gold);text-decoration:none}
-
-/* WA FLOAT */
-.wa-float{position:fixed;bottom:28px;right:28px;z-index:98;background:#25D366;color:#fff;border-radius:50%;width:58px;height:58px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;text-decoration:none;box-shadow:0 6px 24px rgba(37,211,102,.5);animation:pulse 2.5s ease infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-
-/* RESPONSIVE */
-@media(max-width:1000px){
-  section{padding:60px 24px}
-  .hero{grid-template-columns:1fr;padding:60px 24px;min-height:auto;gap:0}
-  .hero-right{display:none}
-  .dor-grid,.met-fases,.met-pilares,.prog-grid,.depo-grid{grid-template-columns:1fr}
-  .prog-card.tier2{transform:scale(1)}
-  .aut-layout{grid-template-columns:1fr}
-  .aut-photo-wrapper{max-width:260px;margin:0 auto}
-  .aut-stats{grid-template-columns:repeat(3,1fr)}
-  .result-nums{gap:28px}
-  .garantia-layout{grid-template-columns:1fr;text-align:center}
-  .garantia-badge{margin:0 auto}
-  header{padding:14px 20px}
-  .cta-section{padding:70px 24px}
-  .compare-table{font-size:.8rem}
-  .compare-table th,.compare-table td{padding:10px 12px}
-  footer{padding:32px 24px}
-  .form-row-2{grid-template-columns:1fr}
-  .modal-plan-select{grid-template-columns:1fr}
-}
-</style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-submerged {
+            background-color: #28180e;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#673c1f",
+                      "tertiary-container": "#7d7364",
+                      "on-primary-container": "#fffbff",
+                      "primary-fixed-dim": "#ffb785",
+                      "secondary-fixed-dim": "#f8b993",
+                      "surface-dim": "#f3d4c3",
+                      "outline": "#877367",
+                      "on-primary-fixed": "#301400",
+                      "secondary": "#835334",
+                      "surface-container": "#ffeadf",
+                      "on-surface-variant": "#544339",
+                      "primary-fixed": "#ffdcc6",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#af601f",
+                      "inverse-surface": "#3f2c21",
+                      "on-background": "#28180e",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed": "#321300",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "tertiary": "#645b4d",
+                      "on-tertiary-container": "#fffbff",
+                      "tertiary-fixed-dim": "#d1c5b4",
+                      "surface": "#fff8f5",
+                      "surface-container-lowest": "#ffffff",
+                      "text-on-dark": "#F7EFE5",
+                      "outline-variant": "#dac2b4",
+                      "on-surface": "#28180e",
+                      "surface-container-highest": "#fcdccb",
+                      "inverse-on-surface": "#ffede5",
+                      "surface-container-low": "#fff1ea",
+                      "primary": "#904804",
+                      "surface-variant": "#fcdccb",
+                      "secondary-fixed": "#ffdbc8",
+                      "surface-bright": "#fff8f5",
+                      "secondary-container": "#febe98",
+                      "accent-vibrant": "#C87432",
+                      "on-tertiary-fixed": "#211b10",
+                      "on-tertiary-fixed-variant": "#4e4639",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#ffe3d4",
+                      "inverse-primary": "#ffb785",
+                      "tertiary-fixed": "#eee1cf",
+                      "on-secondary-container": "#794b2d",
+                      "background": "#fff8f5",
+                      "on-tertiary": "#ffffff",
+                      "surface-cream": "#F7EFE5",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed-variant": "#713700",
+                      "surface-tint": "#934b07"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "section-gap-mobile": "80px",
+                      "content-max-width": "1200px",
+                      "container-padding": "32px",
+                      "section-gap-desktop": "160px"
+              },
+              "fontFamily": {
+                      "headline-md": ["EB Garamond"],
+                      "headline-lg": ["EB Garamond"],
+                      "button-text": ["DM Sans"],
+                      "display-hero-mobile": ["EB Garamond"],
+                      "body-md": ["DM Sans"],
+                      "display-hero": ["EB Garamond"],
+                      "body-lg": ["DM Sans"],
+                      "label-caps": ["DM Sans"]
+              },
+              "fontSize": {
+                      "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                      "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "500"}],
+                      "button-text": ["18px", {"lineHeight": "24px", "fontWeight": "700"}],
+                      "display-hero-mobile": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+                      "display-hero": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                      "body-lg": ["20px", {"lineHeight": "32px", "fontWeight": "400"}],
+                      "label-caps": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
 </head>
-<body>
-
-<!-- BAR -->
-<div class="bar">
-  🔥 TURMA DE MAIO — vagas limitadas. Encerra em: <strong id="countdown">00:00:00</strong> &nbsp;|&nbsp; Parcelamento em até 12× no cartão
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- Top Notice Bar -->
+<div class="bg-primary py-2 px-container-padding text-center">
+<p class="font-label-caps text-label-caps text-on-primary">
+            🔥 TURMA DE MAIO — vagas limitadas. Encerra em: <span class="font-bold">00:00:00</span> | Parcelamento em até 12× no cartão
+        </p>
 </div>
-
-<!-- HEADER -->
-<header>
-  <div class="logo-text">Sibele <em>Oliveira</em></div>
-  <a class="header-cta" href="#programas" onclick="event.preventDefault();document.getElementById('programas').scrollIntoView({behavior:'smooth'})">Ver programas →</a>
+<!-- Navigation -->
+<header class="fixed top-12 w-full z-50 bg-surface/95 backdrop-blur-md border-b border-secondary/10">
+<nav class="max-w-content-max-width mx-auto px-container-padding py-5 flex justify-between items-center">
+<a class="font-headline-md text-headline-md font-semibold text-primary tracking-tight" href="#">Sibele Oliveira</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-button-text text-button-text text-on-surface-variant hover:text-accent-vibrant transition-colors" href="#diagnostico">Diagnostic</a>
+<a class="font-button-text text-button-text text-on-surface-variant hover:text-accent-vibrant transition-colors" href="#metodologia">Methodology</a>
+<a class="font-button-text text-button-text text-on-surface-variant hover:text-accent-vibrant transition-colors" href="#programas">Programs</a>
+<a class="font-button-text text-button-text text-on-surface-variant hover:text-accent-vibrant transition-colors" href="#faq">FAQ</a>
+<a class="bg-accent-vibrant text-on-primary px-6 py-2 rounded-lg font-button-text text-button-text hover:opacity-90 transition-transform active:scale-95" href="#programas">Enroll Now</a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</nav>
 </header>
-
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <div class="hero-badge">Consultoria & Mentoria Corporativa</div>
-    <h1>Transforme seu time numa <em>Máquina de Vendas</em></h1>
-    <p class="hero-sub">
-      Metodologia testada em mais de 30 anos de liderança executiva no Santander, Sicredi e CredCrea — estruturada em três programas para a jornada da sua equipe.
-    </p>
-    <ul class="hero-checks">
-      <li>Aumento imediato de conversão com metodologia tática e estratégica</li>
-      <li>Diagnóstico de cultura comercial para reduzir turnover</li>
-      <li>KPIs, processos e lideranças formadas para escalar resultados</li>
-      <li>Formato híbrido: presencial + online, qualquer segmento</li>
-    </ul>
-    <a href="#programas" class="btn-primary" onclick="event.preventDefault();document.getElementById('programas').scrollIntoView({behavior:'smooth'})">
-      Conhecer os programas →
-    </a>
-    <p class="hero-note"><strong>⚠ Vagas limitadas.</strong> Garantia de 15 dias em todos os programas.</p>
-  </div>
-  <div class="hero-right">
-    <div class="hero-stat-card">
-      <div class="hs-icon">🏆</div>
-      <div>
-        <div class="hs-num">+30 anos</div>
-        <div class="hs-label">liderança executiva no sistema financeiro nacional</div>
-      </div>
-    </div>
-    <div class="hero-stat-card">
-      <div class="hs-icon">🎯</div>
-      <div>
-        <div class="hs-num">3 programas</div>
-        <div class="hs-label">do básico ao estratégico — escolha o nível certo para sua equipe</div>
-      </div>
-    </div>
-    <div class="hero-stat-card">
-      <div class="hs-icon">📈</div>
-      <div>
-        <div class="hs-num">100+ profissionais</div>
-        <div class="hs-label">formados em alta performance comercial</div>
-      </div>
-    </div>
-    <div class="hero-stat-card">
-      <div class="hs-icon">🛡️</div>
-      <div>
-        <div class="hs-num">15 dias</div>
-        <div class="hs-label">de garantia total — risco zero para você</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DOR -->
-<section class="dor-section">
-  <div class="section-label">O Diagnóstico</div>
-  <h2 class="section-title" style="color:var(--cream)">Seu time está deixando dinheiro na mesa?</h2>
-  <p class="section-sub">Problemas silenciosos que custam faturamento todos os dias.</p>
-  <div class="dor-grid">
-    <div class="dor-card">
-      <div class="dor-icon">😰</div>
-      <h4>Alta rotatividade</h4>
-      <p>Você contrata e treina, mas a cultura não se mantém e os talentos vão embora.</p>
-    </div>
-    <div class="dor-card">
-      <div class="dor-icon">📉</div>
-      <h4>Conversão estagnada</h4>
-      <p>O time aborda, mas raramente fecha. Faltam técnica, postura e método de objeção.</p>
-    </div>
-    <div class="dor-card">
-      <div class="dor-icon">🎯</div>
-      <h4>Metas sem método</h4>
-      <p>Números no ar, sem KPIs claros, sem plano de prospecção e sem responsabilização.</p>
-    </div>
-    <div class="dor-card">
-      <div class="dor-icon">🔄</div>
-      <h4>Pós-venda inexistente</h4>
-      <p>Clientes compraram uma vez e sumiram — sem estratégia de fidelização ativa.</p>
-    </div>
-    <div class="dor-card">
-      <div class="dor-icon">😶</div>
-      <h4>Líderes sem preparo</h4>
-      <p>Bons vendedores promovidos que não sabem como desenvolver e engajar uma equipe.</p>
-    </div>
-    <div class="dor-card">
-      <div class="dor-icon">🌀</div>
-      <h4>Prospecção sem processo</h4>
-      <p>Cada vendedor faz do seu jeito, sem pipeline, sem cadência e sem escala.</p>
-    </div>
-  </div>
-  <div class="dor-cta">
-    <p>"Se você reconheceu dois ou mais desses cenários, a solução está abaixo."</p>
-    <a href="#programas" class="btn-primary" onclick="event.preventDefault();document.getElementById('programas').scrollIntoView({behavior:'smooth'})">Ver os programas →</a>
-  </div>
-</section>
-
-<!-- AUTORIDADE -->
-<section class="autoridade-section">
-  <div class="aut-layout">
-    <div class="aut-photo-wrapper" style="position:relative">
-      <div class="aut-photo-box">👩‍💼</div>
-      <div class="aut-seal"><strong>30</strong>anos de experiência</div>
-    </div>
-    <div class="aut-right">
-      <div class="section-label">A Especialista</div>
-      <h2 class="section-title">A autoridade por <em>trás da metodologia</em></h2>
-      <div class="aut-name">Sibele Oliveira — Gestão Estratégica de Pessoas & Alta Performance</div>
-      <p class="aut-bio">
-        Quase <strong>30 anos de carreira executiva</strong> no sistema financeiro nacional, liderando equipes comerciais de alta performance em <strong>Santander, Sicredi e CredCrea</strong>. Especialista em transformar times comuns em máquinas de resultado — com método, cultura e liderança formada de dentro para fora, em qualquer segmento comercial.
-      </p>
-      <div class="aut-credentials">
-        <span class="cred-pill">MBA em Gestão de Pessoas — FGV</span>
-        <span class="cred-pill">Certificação CEA — ANBIMA</span>
-        <span class="cred-pill">Bacharelado em Direito</span>
-        <span class="cred-pill">Santander · Sicredi · CredCrea</span>
-      </div>
-      <div class="aut-stats">
-        <div class="aut-stat">
-          <div class="aut-stat-num">+30</div>
-          <div class="aut-stat-label">anos liderando equipes comerciais</div>
-        </div>
-        <div class="aut-stat">
-          <div class="aut-stat-num">3</div>
-          <div class="aut-stat-label">grandes instituições financeiras</div>
-        </div>
-        <div class="aut-stat">
-          <div class="aut-stat-num">100+</div>
-          <div class="aut-stat-label">profissionais formados em alta performance</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- METODOLOGIA -->
-<section class="metodologia-section">
-  <div class="section-label">Metodologia</div>
-  <h2 class="section-title">A <em>Trilha de Excelência</em> Comercial</h2>
-  <p class="section-sub">Uma abordagem baseada em dados e comportamento, com três fases que garantem absorção real e impacto imediato no funil de vendas.</p>
-  <div class="met-fases">
-    <div class="met-fase">
-      <div class="met-fase-num">01</div>
-      <h4>Pré-work</h4>
-      <p>Mapeamento do estágio atual da equipe, identificação de gaps e alinhamento de expectativas antes do primeiro encontro.</p>
-    </div>
-    <div class="met-fase">
-      <div class="met-fase-num">02</div>
-      <h4>Encontro</h4>
-      <p>Imersão em técnica, estratégia e prática. Conteúdo denso, exercícios aplicados e reflexões para mudança real de comportamento.</p>
-    </div>
-    <div class="met-fase">
-      <div class="met-fase-num">03</div>
-      <h4>Pós-work</h4>
-      <p>Aplicação real no mercado com acompanhamento estruturado. Garante a sustentação e mensuração dos resultados obtidos.</p>
-    </div>
-  </div>
-  <div class="met-pilares">
-    <div class="pilar-card">
-      <h4>Diagnóstico de Maturidade Comercial</h4>
-      <p>Mapeamento profundo dos gaps, forças e oportunidades do time de vendas da sua empresa.</p>
-    </div>
-    <div class="pilar-card">
-      <h4>Metas SMART</h4>
-      <p>Implementação de objetivos inteligentes, mensuráveis e alinhados à realidade do seu mercado.</p>
-    </div>
-    <div class="pilar-card">
-      <h4>Planejamento de Prospecção</h4>
-      <p>Processos avançados de prospecção e conversão adaptados ao ciclo de vendas de cada empresa.</p>
-    </div>
-    <div class="pilar-card">
-      <h4>Excelência na Experiência do Cliente</h4>
-      <p>Estratégias de pós-venda ativo e fidelização para maximizar o LTV e a recorrência comercial.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PROGRAMAS -->
-<section class="programas-section" id="programas">
-  <div class="section-label">Programas Corporativos</div>
-  <h2 class="section-title" style="color:var(--cream)">Escolha o <em>nível de performance</em> ideal para sua equipe</h2>
-  <p class="section-sub">Do alinhamento de bases à formação de lideranças — três programas para cada estágio de maturidade comercial.</p>
-
-  <div class="prog-grid">
-
-    <!-- PROGRAMA 01 -->
-    <div class="prog-card tier1">
-      <div class="prog-tag">Programa 01</div>
-      <div class="prog-name">Fundações Comerciais</div>
-      <p class="prog-subtitle">Ideal para estruturar as bases de uma atuação comercial sólida e estratégica — ponto de partida para qualquer time.</p>
-      <ul class="prog-includes">
-        <li><span>✓</span> Alinhamento de cultura comercial</li>
-        <li><span>✓</span> Diagnóstico de maturidade do time</li>
-        <li><span>✓</span> Aplicação de metas SMART</li>
-        <li><span>✓</span> Planejamento de Prospecção</li>
-        <li><span>✓</span> Construção do Plano de Ação inicial</li>
-        <li><span>✓</span> Materiais de apoio + pré e pós-work</li>
-      </ul>
-      <div class="prog-price-block">
-        <div class="prog-encounters">4 Encontros · Híbrido</div>
-        <div class="prog-price"><sub>R$</sub>1.997</div>
-        <div class="prog-installment">ou 12× de R$ 166,41 sem juros</div>
-      </div>
-      <div class="prog-guarantee">🛡️ Garantia de 15 dias — risco zero</div>
-      <button class="btn-prog" onclick="openModal('Fundações Comerciais','R$ 1.997','12× de R$ 166,41')">Quero este programa →</button>
-    </div>
-
-    <!-- PROGRAMA 02 — DESTAQUE -->
-    <div class="prog-card tier2">
-      <div class="prog-badge">⭐ Mais Procurado</div>
-      <div class="prog-tag">Programa 02</div>
-      <div class="prog-name">Elite Closer</div>
-      <p class="prog-subtitle">Domínio completo do ciclo de vendas de alto valor — da prospecção ao fechamento e pós-venda ativo.</p>
-      <ul class="prog-includes">
-        <li><span>✓</span> Tudo do Programa 01</li>
-        <li><span>✓</span> Autoridade: Postura, Vestimenta & Oratória</li>
-        <li><span>✓</span> Técnicas Avançadas de Prospecção e Conversão</li>
-        <li><span>✓</span> Contorno Estratégico de Objeções</li>
-        <li><span>✓</span> Fechamento de Vendas de Alto Valor</li>
-        <li><span>✓</span> Pós-venda ativo & Experiência do Cliente</li>
-        <li><span>✓</span> Grupo exclusivo de acompanhamento</li>
-      </ul>
-      <div class="prog-price-block">
-        <div class="prog-encounters">8 Encontros · Híbrido</div>
-        <div class="prog-price"><sub>R$</sub>3.997</div>
-        <div class="prog-installment">ou 12× de R$ 332,75 sem juros</div>
-      </div>
-      <div class="prog-guarantee">🛡️ Garantia de 15 dias — risco zero</div>
-      <button class="btn-prog" onclick="openModal('Elite Closer','R$ 3.997','12× de R$ 332,75')">Garantir minha vaga →</button>
-    </div>
-
-    <!-- PROGRAMA 03 -->
-    <div class="prog-card tier3">
-      <div class="prog-tag">Programa 03</div>
-      <div class="prog-name">Master & Gestão Estratégica</div>
-      <p class="prog-subtitle">Para empresas que buscam liderança estratégica e gestão de times de alta performance a longo prazo.</p>
-      <ul class="prog-includes">
-        <li><span>✓</span> Tudo do Programa 02</li>
-        <li><span>✓</span> Análise Competitiva de Mercado</li>
-        <li><span>✓</span> Estratégias de Penetração de Mercado</li>
-        <li><span>✓</span> Formação de Lideranças Comerciais</li>
-        <li><span>✓</span> Criação e Gestão de KPIs</li>
-        <li><span>✓</span> Continuidade Pós-Mentoria</li>
-        <li><span>✓</span> Plano estratégico de 90 dias</li>
-      </ul>
-      <div class="prog-price-block">
-        <div class="prog-encounters">10 Encontros · Híbrido</div>
-        <div class="prog-price"><sub>R$</sub>5.997</div>
-        <div class="prog-installment">ou 12× de R$ 499,75 sem juros</div>
-      </div>
-      <div class="prog-guarantee">🛡️ Garantia de 15 dias — risco zero</div>
-      <button class="btn-prog" onclick="openModal('Master & Gestão Estratégica','R$ 5.997','12× de R$ 499,75')">Quero este programa →</button>
-    </div>
-  </div>
-
-  <div class="prog-footer-note">
-    ℹ️ Todos os programas incluem formato híbrido (presencial e online), materiais de apoio, pré-work e pós-work estruturados. Aplicável a equipes de vendas de qualquer segmento. Para equipes maiores, solicite uma proposta corporativa personalizada.
-  </div>
-</section>
-
-<!-- COMPARATIVO -->
-<section class="compare-section">
-  <div class="section-label">Comparativo</div>
-  <h2 class="section-title">O que está incluído em cada <em>programa</em></h2>
-  <p class="section-sub" style="margin-bottom:36px">Veja lado a lado e escolha com clareza.</p>
-  <div style="overflow-x:auto">
-    <table class="compare-table">
-      <thead>
-        <tr>
-          <th>Conteúdo / Recurso</th>
-          <th>Fundações<br><small style="font-weight:400;opacity:.7">4 encontros</small></th>
-          <th class="highlight">Elite Closer ⭐<br><small style="font-weight:400;opacity:.85">8 encontros</small></th>
-          <th>Master<br><small style="font-weight:400;opacity:.7">10 encontros</small></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Diagnóstico de Maturidade Comercial</td>
-          <td><span class="check-yes">✓</span></td>
-          <td class="highlight-col"><span class="check-yes">✓</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Metas SMART & Plano de Ação</td>
-          <td><span class="check-yes">✓</span></td>
-          <td class="highlight-col"><span class="check-yes">✓</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Planejamento de Prospecção</td>
-          <td><span class="check-yes">✓</span></td>
-          <td class="highlight-col"><span class="check-yes">✓</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Autoridade: Postura & Oratória</td>
-          <td><span class="check-no">—</span></td>
-          <td class="highlight-col"><span class="check-yes">✓</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Prospecção Avançada & Conversão</td>
-          <td><span class="check-no">—</span></td>
-          <td class="highlight-col"><span class="check-yes">✓</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Contorno Estratégico de Objeções</td>
-          <td><span class="check-no">—</span></td>
-          <td class="highlight-col"><span class="check-yes">✓</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Fechamento de Vendas de Alto Valor</td>
-          <td><span class="check-no">—</span></td>
-          <td class="highlight-col"><span class="check-yes">✓</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Pós-venda Ativo & Fidelização</td>
-          <td><span class="check-no">—</span></td>
-          <td class="highlight-col"><span class="check-yes">✓</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Análise Competitiva de Mercado</td>
-          <td><span class="check-no">—</span></td>
-          <td class="highlight-col"><span class="check-no">—</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Formação de Lideranças Comerciais</td>
-          <td><span class="check-no">—</span></td>
-          <td class="highlight-col"><span class="check-no">—</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Criação & Gestão de KPIs</td>
-          <td><span class="check-no">—</span></td>
-          <td class="highlight-col"><span class="check-no">—</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Continuidade Pós-Mentoria</td>
-          <td><span class="check-no">—</span></td>
-          <td class="highlight-col"><span class="check-no">—</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Materiais de apoio + Pré/Pós-work</td>
-          <td><span class="check-yes">✓</span></td>
-          <td class="highlight-col"><span class="check-yes">✓</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Formato Híbrido (online + presencial)</td>
-          <td><span class="check-yes">✓</span></td>
-          <td class="highlight-col"><span class="check-yes">✓</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-        <tr>
-          <td>Garantia de 15 dias</td>
-          <td><span class="check-yes">✓</span></td>
-          <td class="highlight-col"><span class="check-yes">✓</span></td>
-          <td><span class="check-yes">✓</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- DEPOIMENTOS -->
-<section class="depo-section">
-  <div class="section-label">Depoimentos</div>
-  <h2 class="section-title">O que dizem quem já <em>viveu a transformação</em></h2>
-  <p class="section-sub">Resultados reais de quem aplicou a metodologia na prática.</p>
-  <div class="depo-grid">
-    <div class="depo-card">
-      <div class="depo-stars">★★★★★</div>
-      <p class="depo-text">"Em 60 dias após a mentoria, minha equipe triplicou a taxa de fechamento. O módulo de objeções foi um divisor de águas para o nosso time."</p>
-      <div class="depo-author">
-        <div class="depo-avatar">R</div>
-        <div>
-          <div class="depo-name">Rafael M.</div>
-          <div class="depo-role">Gerente Comercial · Setor de Seguros</div>
-        </div>
-      </div>
-    </div>
-    <div class="depo-card">
-      <div class="depo-stars">★★★★★</div>
-      <p class="depo-text">"A Sibele tem uma experiência que você não encontra em cursos online. É prático, profundo e direto ao ponto. Meu time virou outro em poucos meses."</p>
-      <div class="depo-author">
-        <div class="depo-avatar">C</div>
-        <div>
-          <div class="depo-name">Cláudia A.</div>
-          <div class="depo-role">Diretora Comercial · Construtora</div>
-        </div>
-      </div>
-    </div>
-    <div class="depo-card">
-      <div class="depo-stars">★★★★★</div>
-      <p class="depo-text">"Reduzi o turnover em mais de 30% e aumentei o LTV com as técnicas de pós-venda ativo. O investimento se pagou em menos de 3 meses."</p>
-      <div class="depo-author">
-        <div class="depo-avatar">F</div>
-        <div>
-          <div class="depo-name">Fernando L.</div>
-          <div class="depo-role">CEO · Rede de Franquias</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESULTADOS -->
-<section class="result-section">
-  <div class="section-label" style="color:rgba(255,255,255,.7)">Resultados</div>
-  <h2 class="section-title">Uma metodologia provada em décadas de resultados reais</h2>
-  <p class="section-sub">Não é teoria. É o mesmo método aplicado para liderar expansão de market share nas maiores instituições financeiras do país.</p>
-  <div class="result-nums">
-    <div>
-      <div class="result-val">30+</div>
-      <div class="result-label">anos formando times de alta performance</div>
-    </div>
-    <div>
-      <div class="result-val">100+</div>
-      <div class="result-label">profissionais capacitados com método comprovado</div>
-    </div>
-    <div>
-      <div class="result-val">3</div>
-      <div class="result-label">grandes bancos com expansão de market share</div>
-    </div>
-    <div>
-      <div class="result-val">↓40%</div>
-      <div class="result-label">redução de turnover nas equipes acompanhadas</div>
-    </div>
-  </div>
-</section>
-
-<!-- GARANTIA -->
-<section class="garantia-section">
-  <div class="section-label">Risco Zero</div>
-  <h2 class="section-title" style="margin-bottom:40px">Você <em>investe protegido</em></h2>
-  <div class="garantia-layout">
-    <div class="garantia-badge">
-      <div class="gdays">15</div>
-      <div class="gtext">dias de garantia total</div>
-    </div>
-    <div class="garantia-content">
-      <h3>Se não sentir valor nos primeiros 15 dias, devolvemos 100% do investimento</h3>
-      <p>Sabemos que você está investindo em resultado, não em promessa. Por isso, se após os primeiros encontros você não sentir que a metodologia tem potencial real para o seu negócio, basta nos enviar um e-mail e devolvemos o valor integralmente — sem burocracia, sem perguntas. Nosso risco. Sua vitória.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq-section">
-  <div class="section-label">Dúvidas Frequentes</div>
-  <h2 class="section-title" style="margin-bottom:40px">Perguntas & <em>Respostas</em></h2>
-  <div class="faq-list">
-    <details class="faq-item">
-      <summary class="faq-q">Como escolho o programa certo para minha equipe? <span class="faq-arrow">▾</span></summary>
-      <p class="faq-a">O Fundações é ideal para quem está estruturando o time do zero ou tem pouco processo comercial. O Elite Closer é para quem já vende mas quer dominar o ciclo completo. O Master é para empresas que querem liderança estratégica, formação de gestores e KPIs sustentáveis a longo prazo. Em caso de dúvida, a sessão de diagnóstico gratuita resolve isso em 30 minutos.</p>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Os encontros são presenciais ou online? <span class="faq-arrow">▾</span></summary>
-      <p class="faq-a">Formato híbrido — presencial (região de Londrina/Norte do Paraná) ou integralmente online via videochamada. A experiência e os resultados são equivalentes nas duas modalidades.</p>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Como funciona o parcelamento no cartão? <span class="faq-arrow">▾</span></summary>
-      <p class="faq-a">Parcelamento em até 12× sem juros no cartão de crédito (Visa, Mastercard, Elo, Amex). O processamento é 100% seguro e criptografado. Após a confirmação do pagamento, você recebe o acesso e o contato para agendar os encontros.</p>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Posso contratar o programa para toda a minha equipe? <span class="faq-arrow">▾</span></summary>
-      <p class="faq-a">Sim. Para equipes maiores existe o formato corporativo com condições especiais. Entre em contato para um diagnóstico gratuito e receba uma proposta personalizada com o melhor formato para o seu time.</p>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">E se eu não gostar? <span class="faq-arrow">▾</span></summary>
-      <p class="faq-a">Você tem 15 dias de garantia total em todos os programas. Se nos primeiros encontros sentir que não é o certo para você, devolvemos 100% do valor investido sem burocracia e sem perguntas.</p>
-    </details>
-    <details class="faq-item">
-      <summary class="faq-q">Para quais segmentos a metodologia funciona? <span class="faq-arrow">▾</span></summary>
-      <p class="faq-a">A metodologia foi desenvolvida para funcionar em qualquer segmento comercial — varejo, serviços, agronegócio, tecnologia, financeiro, construção, franquias e muito mais. O diagnóstico inicial adapta o conteúdo ao ciclo de vendas da sua empresa.</p>
-    </details>
-  </div>
-</section>
-
-<!-- CTA FINAL -->
-<section class="cta-section">
-  <div class="section-label" style="color:var(--gold)">Próximo Passo</div>
-  <h2 class="section-title">A decisão que separa os times <em>medianos dos extraordinários</em></h2>
-  <p class="section-sub">Cada dia sem método é dinheiro que vai para o concorrente. Escolha seu programa e comece agora.</p>
-  <div class="cta-cards">
-    <div class="cta-mini" onclick="openModal('Fundações Comerciais','R$ 1.997','12× de R$ 166,41')">
-      <div class="cta-mini-name">Fundações Comerciais</div>
-      <div class="cta-mini-price">4 encontros · <strong>R$ 1.997</strong></div>
-    </div>
-    <div class="cta-mini featured" onclick="openModal('Elite Closer','R$ 3.997','12× de R$ 332,75')">
-      <div class="cta-mini-name">⭐ Elite Closer</div>
-      <div class="cta-mini-price">8 encontros · <strong>R$ 3.997</strong></div>
-    </div>
-    <div class="cta-mini" onclick="openModal('Master & Gestão Estratégica','R$ 5.997','12× de R$ 499,75')">
-      <div class="cta-mini-name">Master & Gestão Estratégica</div>
-      <div class="cta-mini-price">10 encontros · <strong>R$ 5.997</strong></div>
-    </div>
-  </div>
-  <div class="cta-trust">
-    <div class="trust-item">🔒 Pagamento 100% seguro</div>
-    <div class="trust-item">🛡️ Garantia de 15 dias</div>
-    <div class="trust-item">💳 Até 12× sem juros</div>
-    <div class="trust-item">📱 Suporte pelo WhatsApp</div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <strong>Sibele Oliveira</strong> — Consultoria & Mentoria Corporativa<br>
-  📱 <a href="https://wa.me/5543991680101">WhatsApp: (43) 9 9168-0101</a> &nbsp;|&nbsp;
-  ✉️ <a href="mailto:sibelerp@gmail.com">sibelerp@gmail.com</a> &nbsp;|&nbsp;
-  💼 <a href="https://linkedin.com/in/sibele-oliveira" target="_blank">LinkedIn: Sibele Oliveira</a><br><br>
-  <span style="font-size:.75rem">© 2025 Sibele Oliveira. Todos os direitos reservados.</span>
-</footer>
-
-<!-- WA FLOAT -->
-<a class="wa-float" href="https://wa.me/5543991680101?text=Ol%C3%A1%2C+Sibele!+Quero+conhecer+os+programas+de+mentoria." target="_blank" title="Falar no WhatsApp">💬</a>
-
-<!-- MODAL PAGAMENTO -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
-  <div class="modal">
-    <div class="modal-header">
-      <div>
-        <h3 id="modalTitle">Elite Closer</h3>
-        <p>Pagamento seguro com criptografia SSL</p>
-      </div>
-      <button class="modal-close" onclick="closeModal()">×</button>
-    </div>
-    <div class="modal-body">
-
-      <!-- SELEÇÃO DE PLANO -->
-      <div style="font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brown-mid);margin-bottom:10px">Programa selecionado</div>
-      <div class="modal-plan-select">
-        <div class="mps-btn" id="plan1" onclick="selectPlan('Fundações Comerciais','R$ 1.997','12× de R$ 166,41',0)">
-          <div class="mps-btn-name">Fundações</div>
-          <div class="mps-btn-price">R$ 1.997</div>
-        </div>
-        <div class="mps-btn active" id="plan2" onclick="selectPlan('Elite Closer','R$ 3.997','12× de R$ 332,75',1)">
-          <div class="mps-btn-name">Elite Closer ⭐</div>
-          <div class="mps-btn-price">R$ 3.997</div>
-        </div>
-        <div class="mps-btn" id="plan3" onclick="selectPlan('Master & Gestão','R$ 5.997','12× de R$ 499,75',2)">
-          <div class="mps-btn-name">Master</div>
-          <div class="mps-btn-price">R$ 5.997</div>
-        </div>
-      </div>
-
-      <div class="modal-summary">
-        <div>
-          <div class="modal-summary-label" id="modalSummaryLabel">Elite Closer — 8 encontros</div>
-          <div style="font-size:.73rem;color:#9A7A5A;margin-top:2px">Formato híbrido · Sibele Oliveira</div>
-        </div>
-        <div class="modal-summary-val" id="modalPrice">R$ 3.997</div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nome Completo</label>
-          <input type="text" id="nomeInput" placeholder="Seu nome completo">
-        </div>
-      </div>
-      <div class="form-row form-row-2">
-        <div class="form-group">
-          <label>E-mail</label>
-          <input type="email" id="emailInput" placeholder="seu@email.com">
-        </div>
-        <div class="form-group">
-          <label>WhatsApp</label>
-          <input type="tel" id="telefoneInput" placeholder="(43) 9 9999-9999">
-        </div>
-      </div>
-
-      <div class="modal-divider">Dados do cartão</div>
-      <div class="card-icons">
-        <div class="card-icon">VISA</div>
-        <div class="card-icon">MASTER</div>
-        <div class="card-icon">ELO</div>
-        <div class="card-icon">AMEX</div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Número do Cartão</label>
-          <input type="text" id="cardNum" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCard(this)">
-        </div>
-      </div>
-      <div class="form-row form-row-2">
-        <div class="form-group">
-          <label>Validade</label>
-          <input type="text" placeholder="MM/AA" maxlength="5" oninput="formatExp(this)">
-        </div>
-        <div class="form-group">
-          <label>CVV</label>
-          <input type="text" placeholder="000" maxlength="4">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nome no Cartão</label>
-          <input type="text" placeholder="Como está no cartão" style="text-transform:uppercase">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Parcelamento</label>
-          <select id="parcelSelect">
-            <option>1× de R$ 3.997,00 (à vista)</option>
-            <option>2× de R$ 1.998,50 sem juros</option>
-            <option>3× de R$ 1.332,33 sem juros</option>
-            <option>6× de R$ 666,17 sem juros</option>
-            <option selected>12× de R$ 332,75 sem juros</option>
-          </select>
-        </div>
-      </div>
-
-      <button class="btn-pay" onclick="processPayment()">🔒 Confirmar pagamento seguro</button>
-      <div class="modal-secure">🔐 Ambiente protegido com criptografia SSL de 256 bits</div>
-    </div>
-  </div>
+<!-- Hero Section -->
+<section class="pt-48 pb-section-gap-mobile md:pb-section-gap-desktop bg-surface overflow-hidden">
+<div class="max-w-content-max-width mx-auto px-container-padding grid lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7">
+<span class="inline-block py-1 px-3 bg-secondary-container text-on-secondary-container font-label-caps text-label-caps rounded-full mb-6 uppercase tracking-widest">Consultoria &amp; Mentoria Corporativa</span>
+<h1 class="font-display-hero text-display-hero-mobile md:text-display-hero mb-8 leading-tight">Transforme seu time numa <span class="italic font-light">Máquina de Vendas</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl">Metodologia testada em mais de 30 anos de liderança executiva no Santander, Sicredi e CredCrea — estruturada em três programas para a jornada da sua equipe.</p>
+<ul class="space-y-4 mb-10">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md font-medium">Aumento imediato de conversão com metodologia tática</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md font-medium">Diagnóstico de cultura comercial para reduzir turnover</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md font-medium">KPIs e processos formados para escalar resultados</span>
+</li>
+</ul>
+<div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+<a class="bg-accent-vibrant text-on-primary px-8 py-4 rounded-lg font-button-text text-button-text hover:shadow-lg transition-all" href="#programas">Conhecer os programas →</a>
+<span class="text-on-surface-variant font-label-caps text-label-caps italic">⚠ Vagas limitadas. Garantia de 15 dias.</span>
 </div>
-
-<script>
-const plans = [
-  { name:'Fundações Comerciais', label:'Fundações Comerciais — 4 encontros', price:'R$ 1.997', installments:[
-    '1× de R$ 1.997,00 (à vista)',
-    '2× de R$ 998,50 sem juros',
-    '3× de R$ 665,67 sem juros',
-    '6× de R$ 332,83 sem juros',
-    '12× de R$ 166,41 sem juros'
-  ]},
-  { name:'Elite Closer', label:'Elite Closer — 8 encontros', price:'R$ 3.997', installments:[
-    '1× de R$ 3.997,00 (à vista)',
-    '2× de R$ 1.998,50 sem juros',
-    '3× de R$ 1.332,33 sem juros',
-    '6× de R$ 666,17 sem juros',
-    '12× de R$ 332,75 sem juros'
-  ]},
-  { name:'Master & Gestão Estratégica', label:'Master & Gestão — 10 encontros', price:'R$ 5.997', installments:[
-    '1× de R$ 5.997,00 (à vista)',
-    '2× de R$ 2.998,50 sem juros',
-    '3× de R$ 1.999,00 sem juros',
-    '6× de R$ 999,50 sem juros',
-    '12× de R$ 499,75 sem juros'
-  ]}
-];
-let activePlan = 1;
-
-function selectPlan(name, price, installment, idx) {
-  activePlan = idx;
-  ['plan1','plan2','plan3'].forEach((id,i) => {
-    document.getElementById(id).classList.toggle('active', i === idx);
-  });
-  const p = plans[idx];
-  document.getElementById('modalTitle').textContent = p.name;
-  document.getElementById('modalSummaryLabel').textContent = p.label;
-  document.getElementById('modalPrice').textContent = p.price;
-  const sel = document.getElementById('parcelSelect');
-  sel.innerHTML = p.installments.map((o,i) => `<option${i===p.installments.length-1?' selected':''}>${o}</option>`).join('');
-}
-
-function openModal(name, price, installment) {
-  const idx = name && name.includes('Fundações') ? 0 : name && name.includes('Master') ? 2 : 1;
-  selectPlan(name||'Elite Closer', price||'R$ 3.997', installment||'12× de R$ 332,75', idx);
-  document.getElementById('modalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function closeModalOutside(e) {
-  if (e.target === document.getElementById('modalOverlay')) closeModal();
-}
-function formatCard(el) {
-  let v = el.value.replace(/\D/g,'').substring(0,16);
-  el.value = v.replace(/(.{4})/g,'$1 ').trim();
-}
-function formatExp(el) {
-  let v = el.value.replace(/\D/g,'').substring(0,4);
-  if (v.length >= 2) v = v.substring(0,2)+'/'+v.substring(2);
-  el.value = v;
-}
-function processPayment() {
-  const nome = document.getElementById('nomeInput').value.trim();
-  const email = document.getElementById('emailInput').value.trim();
-  const tel = document.getElementById('telefoneInput').value.trim();
-  const card = document.getElementById('cardNum').value.replace(/\s/g,'');
-  if (!nome||!email||!tel) { alert('Por favor, preencha seus dados de contato.'); return; }
-  if (card.length < 16) { alert('Número do cartão inválido.'); return; }
-  const plan = plans[activePlan];
-  const msg = encodeURIComponent(`Olá, Sibele! Finalizei minha inscrição.\n\nPrograma: ${plan.name}\nNome: ${nome}\nE-mail: ${email}\nWhatsApp: ${tel}\n\nAguardo a confirmação!`);
-  closeModal();
-  alert(`✅ Pagamento enviado!\n\nPrograma: ${plan.name}\nSibele entrará em contato em até 24h para confirmar e agendar os encontros.`);
-  setTimeout(() => window.open(`https://wa.me/5543991680101?text=${msg}`,'_blank'), 600);
-}
-
-// COUNTDOWN
-(function() {
-  const key = 'sibele_dl';
-  let dl;
-  try { const s = localStorage.getItem(key); dl = s ? new Date(+s) : null; } catch(e){}
-  if (!dl || dl < Date.now()) {
-    dl = new Date(Date.now() + 47*3600000 + 38*60000);
-    try { localStorage.setItem(key, dl.getTime()); } catch(e){}
-  }
-  function tick() {
-    const d = dl - Date.now();
-    if (d <= 0) { document.getElementById('countdown').textContent = 'ENCERRADO'; return; }
-    const h = String(Math.floor(d/3600000)).padStart(2,'0');
-    const m = String(Math.floor((d%3600000)/60000)).padStart(2,'0');
-    const s = String(Math.floor((d%60000)/1000)).padStart(2,'0');
-    document.getElementById('countdown').textContent = `${h}:${m}:${s}`;
-  }
-  tick(); setInterval(tick,1000);
-})();
-</script>
-</body>
-</html>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="aspect-[4/5] rounded-full overflow-hidden border-[12px] border-surface-container relative z-10">
+<img class="w-full h-full object-cover" data-alt="A professional portrait of a confident female executive in her 50s with sophisticated attire, standing in a modern corporate office with soft, natural lighting. The style is editorial and premium, using a warm color palette that aligns with the cream and earthy brown tones of the design system. The background is slightly blurred to emphasize authority and experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj8SiiI9kEYKCWEiWM1iHN1pXboRDdSnZFOHqLVYDWa2NrRqOYXlqvkKtBbJEsKyf04SOKUtic6QJ2gFkKDoifFS53J0cRAqOic9AQCowXxEcOiGO1G5w7H_zY0cmoei3CQ4kqxQ1Usac3YGO7iZpQavkEStTETv6auW2W7iBfPOPKzE9dB4MGhhmA63QisCPTqkz7NY_gGYtqzQImjx5pdgTx3QO40-nNoYAsrP9NvXBaG-zsFe_KgNHq3z5eBCx8slN6Cm0BcTA"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl z-20 max-w-[200px]">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-accent-vibrant">verified</span>
+<span class="font-bold text-headline-md leading-none">+30 anos</span>
+</div>
+<p class="text-[12px] uppercase tracking-tighter text-on-surface-variant font-bold">Liderança executiva financeira</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Bar -->
+<div class="bg-surface-cream border-y border-outline-variant/30 py-12">
+<div class="max-w-content-max-width mx-auto px-container-padding flex flex-wrap justify-between gap-8">
+<div class="text-center md:text-left">
+<span class="block text-primary font-bold text-headline-md mb-1">3 programas</span>
+<p class="text-label-caps font-medium text-on-surface-variant">Do básico ao estratégico</p>
+</div>
+<div class="text-center md:text-left">
+<span class="block text-primary font-bold text-headline-md mb-1">100+ profissionais</span>
+<p class="text-label-caps font-medium text-on-surface-variant">Formados em alta performance</p>
+</div>
+<div class="text-center md:text-left">
+<span class="block text-primary font-bold text-headline-md mb-1">15 dias</span>
+<p class="text-label-caps font-medium text-on-surface-variant">Garantia total de satisfação</p>
+</div>
+</div>
+</div>
+<!-- Section 1: Pain Points (The Diagnosis) -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-surface" id="diagnostico">
+<div class="max-w-content-max-width mx-auto px-container-padding">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-accent-vibrant tracking-widest mb-4 block">O DIAGNÓSTICO</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">Seu time está deixando <span class="italic">dinheiro na mesa?</span></h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl mx-auto">Problemas silenciosos que custam faturamento todos os dias.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-cream p-8 rounded-lg border border-secondary/10 hover:border-accent-vibrant/40 transition-all group">
+<span class="material-symbols-outlined text-primary mb-6 text-4xl group-hover:scale-110 transition-transform block">person_remove</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-4">Alta rotatividade</h4>
+<p class="text-on-surface-variant">Você contrata e treina, mas a cultura não se mantém e os talentos vão embora.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-cream p-8 rounded-lg border border-secondary/10 hover:border-accent-vibrant/40 transition-all group">
+<span class="material-symbols-outlined text-primary mb-6 text-4xl group-hover:scale-110 transition-transform block">trending_down</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-4">Conversão estagnada</h4>
+<p class="text-on-surface-variant">O time aborda, mas raramente fecha. Faltam técnica, postura e método de objeção.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-cream p-8 rounded-lg border border-secondary/10 hover:border-accent-vibrant/40 transition-all group">
+<span class="material-symbols-outlined text-primary mb-6 text-4xl group-hover:scale-110 transition-transform block">assignment_late</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-4">Metas sem método</h4>
+<p class="text-on-surface-variant">Números no ar, sem KPIs claros, sem plano de prospecção e sem responsabilização.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-cream p-8 rounded-lg border border-secondary/10 hover:border-accent-vibrant/40 transition-all group">
+<span class="material-symbols-outlined text-primary mb-6 text-4xl group-hover:scale-110 transition-transform block">history</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-4">Pós-venda inexistente</h4>
+<p class="text-on-surface-variant">Clientes compraram uma vez e sumiram — sem estratégia de fidelização ativa.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-cream p-8 rounded-lg border border-secondary/10 hover:border-accent-vibrant/40 transition-all group">
+<span class="material-symbols-outlined text-primary mb-6 text-4xl group-hover:scale-110 transition-transform block">psychology</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-4">Líderes sem preparo</h4>
+<p class="text-on-surface-variant">Bons vendedores promovidos que não sabem como desenvolver e engajar uma equipe.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-cream p-8 rounded-lg border border-secondary/10 hover:border-accent-vibrant/40 transition-all group">
+<span class="material-symbols-outlined text-primary mb-6 text-4xl group-hover:scale-110 transition-transform block">rebase_edit</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-4">Prospecção sem processo</h4>
+<p class="text-on-surface-variant">Cada vendedor faz do seu jeito, sem pipeline, sem cadência e sem escala.</p>
+</div>
+</div>
+<div class="mt-16 text-center">
+<p class="italic font-headline-md text-primary mb-8">"Se você reconheceu dois ou mais desses cenários, a solução está abaixo."</p>
+<a class="inline-block border-2 border-primary text-primary px-8 py-3 rounded-lg font-button-text text-button-text hover:bg-primary hover:text-on-primary transition-all" href="#programas">Ver os programas →</a>
+</div>
+</div>
+</section>
+<!-- Section 2: Authority (Sibele Oliveira) -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-on-background text-text-on-dark overflow-hidden relative">
+<div class="max-w-content-max-width mx-auto px-container-padding relative z-10">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1">
+<span class="font-label-caps text-label-caps text-primary-fixed-dim tracking-widest mb-4 block uppercase">A ESPECIALISTA</span>
+<h2 class="font-headline-lg text-headline-lg mb-8 leading-tight">A autoridade por <span class="italic font-light">trás da metodologia</span></h2>
+<p class="font-body-lg text-body-lg text-text-on-dark/80 mb-6">Sibele Oliveira — Gestão Estratégica de Pessoas &amp; Alta Performance</p>
+<p class="text-body-md text-text-on-dark/70 mb-10 leading-relaxed">
+                        Quase <span class="text-primary-fixed-dim font-bold">30 anos de carreira executiva</span> no sistema financeiro nacional, liderando equipes comerciais de alta performance em <span class="font-semibold italic">Santander, Sicredi e CredCrea</span>. Especialista em transformar times comuns em máquinas de resultado — com método, cultura e liderança formada de dentro para fora, em qualquer segmento comercial.
+                    </p>
+<div class="flex flex-wrap gap-8 py-8 border-y border-text-on-dark/10">
+<div>
+<span class="block text-primary-fixed-dim text-headline-md font-bold mb-1">+30</span>
+<p class="text-[12px] uppercase tracking-wider opacity-60">Anos Liderando Equipes</p>
+</div>
+<div>
+<span class="block text-primary-fixed-dim text-headline-md font-bold mb-1">3</span>
+<p class="text-[12px] uppercase tracking-wider opacity-60">Instituições Financeiras</p>
+</div>
+<div>
+<span class="block text-primary-fixed-dim text-headline-md font-bold mb-1">100+</span>
+<p class="text-[12px] uppercase tracking-wider opacity-60">Profissionais Formados</p>
+</div>
+</div>
+<div class="mt-10 flex gap-4 items-center">
+<img class="h-10 grayscale brightness-200 opacity-50" data-alt="Modern corporate logo cluster of financial institutions like Santander and Sicredi in a clean, minimalist monochrome style to denote prestige and high-level association. The lighting is subtle, focused on professionalism and establishment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSZp8cRGvZRBS4OQX9gWAP1gthHT6GXLjf4Q2bXhn-tnEHiKZN_HmJGvHSqIrKjGZklaFonS3_NM3wG2lkgW4b-fKvUmWzAk_01lm-MyQJ9p9UV4EZ60iDABRKVqtqqazLnKQEkMt8Xgc9atxNqAaiUDaefFYn_jKH2fTbXAX-xffk1Jv-5RSSWjWtMXHyJSDOISC6KQDucdmS-13KZqR2uHy9xIICi2yWKjm-g4yzB8K2XuK2SeACggx9AbbtAtOM-rRhY8pAijg"/>
+</div>
+</div>
+<div class="order-1 lg:order-2">
+<div class="relative">
+<div class="aspect-square bg-primary-fixed-dim/10 rounded-full absolute -top-8 -right-8 w-full"></div>
+<img class="relative z-10 rounded-lg shadow-2xl w-full h-auto grayscale-0 brightness-110" data-alt="Close up photography of Sibele Oliveira, capturing her authoritative presence. She is laughing genuinely, suggesting approachable leadership. The backdrop is a high-end corporate office with mahogany wood and soft morning light. The high-contrast relationship between deep neutrals and warm terracotta tones is preserved in this professional portrait." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmNAwor_deNxrNKR1gnmrLo1sNordHx1qYKu1BrV4FG__B7HAeHSJx7CuQ5EhxsuMtjlqSpe5hUh65gJusRzBHhJwdyGn9XY7SwUyvds4py2zUUd4O52_0_jWFI3Y5NkhBcK0D7HI5aKVITo73wZPA_ta1mJGGE4AEQRNrbO1--diBLdVjk9utS_oUtfoq5rMZZYPyNZFVmsgcr0Zm0_adzWH1YDfvHow6At-kI2E1KcEyKhWIUM_5uPVSYrZ7SIC9tWPt1uIXQOw"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Abstract Background Pattern -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-primary-fixed-dim/5 -skew-x-12 transform origin-top pointer-events-none"></div>
+</section>
+<!-- Section 3: Methodology -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-surface" id="metodologia">
+<div class="max-w-content-max-width mx-auto px-container-padding">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-accent-vibrant tracking-widest mb-4 block">METODOLOGIA</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">A <span class="italic">Trilha de Excelência</span> Comercial</h2>
+<p class="text-body-lg text-on-surface-variant max-w-3xl mx-auto">Uma abordagem baseada em dados e comportamento, com três fases que garantem absorção real e impacto imediato no funil de vendas.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-12 mb-20">
+<div class="text-center group">
+<div class="w-16 h-16 bg-surface-cream border border-secondary/20 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-accent-vibrant group-hover:text-on-primary transition-all duration-300">
+<span class="font-headline-md text-headline-md font-bold">01</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 text-primary">Pré-work</h3>
+<p class="text-on-surface-variant">Mapeamento do estágio atual da equipe, identificação de gaps e alinhamento de expectativas antes do primeiro encontro.</p>
+</div>
+<div class="text-center group">
+<div class="w-16 h-16 bg-surface-cream border border-secondary/20 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-accent-vibrant group-hover:text-on-primary transition-all duration-300">
+<span class="font-headline-md text-headline-md font-bold">02</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 text-primary">Encontro</h3>
+<p class="text-on-surface-variant">Imersão em técnica, estratégia e prática. Conteúdo denso, exercícios aplicados e reflexões para mudança real.</p>
+</div>
+<div class="text-center group">
+<div class="w-16 h-16 bg-surface-cream border border-secondary/20 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-accent-vibrant group-hover:text-on-primary transition-all duration-300">
+<span class="font-headline-md text-headline-md font-bold">03</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4 text-primary">Pós-work</h3>
+<p class="text-on-surface-variant">Aplicação real no mercado com acompanhamento estruturado. Garante a sustentação e mensuração dos resultados.</p>
+</div>
+</div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="p-6 bg-surface-container-low border-b-2 border-primary">
+<h4 class="font-button-text text-button-text text-primary mb-2">Diagnóstico de Maturidade</h4>
+<p class="text-[14px] text-on-surface-variant">Mapeamento profundo dos gaps e forças do time.</p>
+</div>
+<div class="p-6 bg-surface-container-low border-b-2 border-primary">
+<h4 class="font-button-text text-button-text text-primary mb-2">Metas SMART</h4>
+<p class="text-[14px] text-on-surface-variant">Objetivos inteligentes alinhados à realidade do mercado.</p>
+</div>
+<div class="p-6 bg-surface-container-low border-b-2 border-primary">
+<h4 class="font-button-text text-button-text text-primary mb-2">Plano de Prospecção</h4>
+<p class="text-[14px] text-on-surface-variant">Processos avançados de conversão e escala.</p>
+</div>
+<div class="p-6 bg-surface-container-low border-b-2 border-primary">
+<h4 class="font-button-text text-button-text text-primary mb-2">Experiência do Cliente</h4>
+<p class="text-[14px] text-on-surface-variant">Estratégias de fidelização e maximização de LTV.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Programs & Pricing -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-surface-cream relative overflow-hidden" id="programas">
+<div class="max-w-content-max-width mx-auto px-container-padding relative z-10">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-accent-vibrant tracking-widest mb-4 block uppercase">PROGRAMAS CORPORATIVOS</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">Escolha o <span class="italic">nível de performance</span> ideal</h2>
+<p class="text-body-lg text-on-surface-variant max-w-2xl mx-auto">Do alinhamento de bases à formação de lideranças comerciais.</p>
+</div>
+<!-- Pricing Grid -->
+<div class="grid lg:grid-cols-3 gap-8 mb-24">
+<!-- Plan 1 -->
+<div class="bg-surface p-8 rounded-lg border border-secondary/10 flex flex-col shadow-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-4 opacity-70">Programa 01</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Fundações Comerciais</h3>
+<p class="text-on-surface-variant mb-8 min-h-[80px]">Ideal para estruturar as bases de uma atuação comercial sólida e estratégica.</p>
+<ul class="space-y-3 mb-12 flex-grow">
+<li class="flex items-center gap-2 text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Alinhamento de cultura</li>
+<li class="flex items-center gap-2 text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Diagnóstico de maturidade</li>
+<li class="flex items-center gap-2 text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Aplicação de metas SMART</li>
+<li class="flex items-center gap-2 text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Planejamento de Prospecção</li>
+</ul>
+<div class="mb-8">
+<span class="block text-on-surface-variant text-[14px]">4 Encontros · Híbrido</span>
+<span class="block text-headline-md font-bold text-primary">R$1.997</span>
+<span class="block text-[14px] text-on-surface-variant">ou 12× de R$ 166,41</span>
+</div>
+<a class="block w-full text-center border-2 border-primary text-primary py-4 rounded-lg font-button-text hover:bg-primary hover:text-on-primary transition-all" href="#">Quero este programa →</a>
+</div>
+<!-- Plan 2 (Featured) -->
+<div class="bg-on-background p-8 rounded-lg border-2 border-accent-vibrant flex flex-col relative scale-105 shadow-2xl z-20">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent-vibrant text-on-primary font-label-caps text-[12px] px-4 py-1 rounded-full whitespace-nowrap">⭐ MAIS PROCURADO</div>
+<span class="font-label-caps text-label-caps text-text-on-dark/70 mb-4">Programa 02</span>
+<h3 class="font-headline-md text-headline-md text-primary-fixed-dim mb-4">Elite Closer</h3>
+<p class="text-text-on-dark/80 mb-8 min-h-[80px]">Domínio completo do ciclo de vendas de alto valor — da prospecção ao fechamento.</p>
+<ul class="space-y-3 mb-12 flex-grow">
+<li class="flex items-center gap-2 text-body-md text-text-on-dark/80"><span class="material-symbols-outlined text-accent-vibrant text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Tudo do Programa 01</li>
+<li class="flex items-center gap-2 text-body-md text-text-on-dark/80"><span class="material-symbols-outlined text-accent-vibrant text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Postura, Vestimenta &amp; Oratória</li>
+<li class="flex items-center gap-2 text-body-md text-text-on-dark/80"><span class="material-symbols-outlined text-accent-vibrant text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Contorno Estratégico de Objeções</li>
+<li class="flex items-center gap-2 text-body-md text-text-on-dark/80"><span class="material-symbols-outlined text-accent-vibrant text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Fechamento de Vendas de Alto Valor</li>
+</ul>
+<div class="mb-8">
+<span class="block text-text-on-dark/60 text-[14px]">8 Encontros · Híbrido</span>
+<span class="block text-headline-md font-bold text-accent-vibrant">R$3.997</span>
+<span class="block text-[14px] text-text-on-dark/60">ou 12× de R$ 332,75</span>
+</div>
+<a class="block w-full text-center bg-accent-vibrant text-on-primary py-4 rounded-lg font-button-text hover:bg-accent-vibrant/90 transition-all shadow-lg" href="#">Garantir minha vaga →</a>
+</div>
+<!-- Plan 3 -->
+<div class="bg-surface p-8 rounded-lg border border-secondary/10 flex flex-col shadow-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-4 opacity-70">Programa 03</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Master &amp; Gestão</h3>
+<p class="text-on-surface-variant mb-8 min-h-[80px]">Para empresas que buscam liderança estratégica e gestão de times a longo prazo.</p>
+<ul class="space-y-3 mb-12 flex-grow">
+<li class="flex items-center gap-2 text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Tudo do Programa 02</li>
+<li class="flex items-center gap-2 text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Análise Competitiva de Mercado</li>
+<li class="flex items-center gap-2 text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Formação de Lideranças</li>
+<li class="flex items-center gap-2 text-body-md text-on-surface-variant"><span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">check</span> Criação e Gestão de KPIs</li>
+</ul>
+<div class="mb-8">
+<span class="block text-on-surface-variant text-[14px]">10 Encontros · Híbrido</span>
+<span class="block text-headline-md font-bold text-primary">R$5.997</span>
+<span class="block text-[14px] text-on-surface-variant">ou 12× de R$ 499,75</span>
+</div>
+<a class="block w-full text-center border-2 border-primary text-primary py-4 rounded-lg font-button-text hover:bg-primary hover:text-on-primary transition-all" href="#">Quero este programa →</a>
+</div>
+</div>
+<!-- Comparison Table -->
+<div class="hidden md:block overflow-x-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-md text-headline-md mb-2">O que está incluído em cada <span class="italic">programa</span></h2>
+<p class="text-on-surface-variant">Veja lado a lado e escolha com clareza.</p>
+</div>
+<table class="w-full text-left border-collapse bg-white rounded-xl shadow-sm overflow-hidden">
+<thead>
+<tr class="bg-primary text-on-primary">
+<th class="p-6 font-button-text">Recurso / Conteúdo</th>
+<th class="p-6 font-button-text text-center">Fundações</th>
+<th class="p-6 font-button-text text-center bg-accent-vibrant">Elite Closer ⭐</th>
+<th class="p-6 font-button-text text-center">Master</th>
+</tr>
+</thead>
+<tbody class="text-on-surface-variant text-body-md">
+<tr class="border-b border-surface-container">
+<td class="p-6 font-medium">Diagnóstico de Maturidade</td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+<td class="p-6 text-center bg-accent-vibrant/5"><span class="material-symbols-outlined text-accent-vibrant">check_circle</span></td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+</tr>
+<tr class="border-b border-surface-container">
+<td class="p-6 font-medium">Metas SMART &amp; Plano de Ação</td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+<td class="p-6 text-center bg-accent-vibrant/5"><span class="material-symbols-outlined text-accent-vibrant">check_circle</span></td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+</tr>
+<tr class="border-b border-surface-container">
+<td class="p-6 font-medium">Postura &amp; Oratória</td>
+<td class="p-6 text-center">—</td>
+<td class="p-6 text-center bg-accent-vibrant/5"><span class="material-symbols-outlined text-accent-vibrant">check_circle</span></td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+</tr>
+<tr class="border-b border-surface-container">
+<td class="p-6 font-medium">Fechamento de Alto Valor</td>
+<td class="p-6 text-center">—</td>
+<td class="p-6 text-center bg-accent-vibrant/5"><span class="material-symbols-outlined text-accent-vibrant">check_circle</span></td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+</tr>
+<tr class="border-b border-surface-container">
+<td class="p-6 font-medium">Formação de Lideranças</td>
+<td class="p-6 text-center">—</td>
+<td class="p-6 text-center bg-accent-vibrant/5">—</td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+</tr>
+<tr>
+<td class="p-6 font-medium">Garantia de 15 dias</td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+<td class="p-6 text-center bg-accent-vibrant/5"><span class="material-symbols-outlined text-accent-vibrant">check_circle</span></td>
+<td class="p-6 text-center"><span class="material-symbols-outlined text-primary">check_circle</span></td>
+</tr>
+</tbody>
+</table>
+<p class="mt-8 text-[14px] text-on-surface-variant max-w-3xl mx-auto text-center italic">
+                    ℹ️ Todos os programas incluem formato híbrido, materiais de apoio, pré-work e pós-work. Aplicável a equipes de vendas de qualquer segmento.
+                </p>
+</div>
+</div>
+<!-- Decorative bg -->
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-surface to-transparent pointer-events-none"></div>
+</section>
+<!-- Section 5: Testimonials -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-on-background text-text-on-dark">
+<div class="max-w-content-max-width mx-auto px-container-padding">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-primary-fixed-dim tracking-widest mb-4 block uppercase">DEPOIMENTOS</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">O que dizem quem já <span class="italic">viveu a transformação</span></h2>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-white p-8 rounded-lg text-on-surface shadow-2xl relative">
+<span class="material-symbols-outlined text-primary-container absolute top-6 right-8 opacity-20 text-6xl" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<div class="flex gap-1 mb-6">
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-md mb-8 italic">"Em 60 dias após a mentoria, minha equipe triplicou a taxa de fechamento. O módulo de objeções foi um divisor de águas para o nosso time."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-on-primary font-bold">R</div>
+<div>
+<p class="font-bold text-on-surface">Rafael M.</p>
+<p class="text-[12px] uppercase opacity-60">Gerente Comercial · Seguros</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-white p-8 rounded-lg text-on-surface shadow-2xl relative">
+<span class="material-symbols-outlined text-primary-container absolute top-6 right-8 opacity-20 text-6xl" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<div class="flex gap-1 mb-6">
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-md mb-8 italic">"A Sibele tem uma experiência que você não encontra em cursos online. É prático, profundo e direto ao ponto. Meu time virou outro em poucos meses."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-on-primary font-bold">C</div>
+<div>
+<p class="font-bold text-on-surface">Cláudia A.</p>
+<p class="text-[12px] uppercase opacity-60">Diretora Comercial · Construtora</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-white p-8 rounded-lg text-on-surface shadow-2xl relative">
+<span class="material-symbols-outlined text-primary-container absolute top-6 right-8 opacity-20 text-6xl" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<div class="flex gap-1 mb-6">
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-accent-vibrant" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-body-md mb-8 italic">"Reduzi o turnover em mais de 30% e aumentei o LTV com as técnicas de pós-venda ativo. O investimento se pagou em menos de 3 meses."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-on-primary font-bold">F</div>
+<div>
+<p class="font-bold text-on-surface">Fernando L.</p>
+<p class="text-[12px] uppercase opacity-60">CEO · Franquias</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: FAQ -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-surface" id="faq">
+<div class="max-w-3xl mx-auto px-container-padding">
+<div class="text-center mb-16">
+<span class="font-label-caps text-label-caps text-accent-vibrant tracking-widest mb-4 block uppercase">DÚVIDAS FREQUENTES</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">Perguntas &amp; <span class="italic">Respostas</span></h2>
+</div>
+<div class="space-y-4">
+<details class="group bg-surface-cream rounded-lg border border-secondary/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-on-surface hover:text-primary transition-colors">
+<span>Como escolho o programa certo para minha equipe?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant border-t border-secondary/5">
+                        O Fundações é ideal para quem está estruturando o time do zero. O Elite Closer é para quem já vende mas quer dominar o ciclo completo. O Master é para empresas que buscam liderança estratégica. Em caso de dúvida, a sessão de diagnóstico gratuita resolve isso em 30 minutos.
+                    </div>
+</details>
+<details class="group bg-surface-cream rounded-lg border border-secondary/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-on-surface hover:text-primary transition-colors">
+<span>Os encontros são presenciais ou online?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant border-t border-secondary/5">
+                        Formato híbrido — presencial (região de Londrina/Norte do Paraná) ou integralmente online via videochamada. A experiência e os resultados são equivalentes nas duas modalidades.
+                    </div>
+</details>
+<details class="group bg-surface-cream rounded-lg border border-secondary/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-on-surface hover:text-primary transition-colors">
+<span>Como funciona o parcelamento no cartão?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant border-t border-secondary/5">
+                        Parcelamento em até 12× sem juros no cartão de crédito (Visa, Mastercard, Elo, Amex). O processamento é 100% seguro e criptografado.
+                    </div>
+</details>
+<details class="group bg-surface-cream rounded-lg border border-secondary/10">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-bold text-on-surface hover:text-primary transition-colors">
+<span>E se eu não gostar?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="p-6 pt-0 text-on-surface-variant border-t border-secondary/5">
+                        Você tem 15 dias de garantia total em todos os programas. Se nos primeiros encontros sentir que não é o certo para você, devolvemos 100% do valor investido sem burocracia.
+                    </div>
+</details>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-submerged relative overflow-hidden">
+<div class="max-w-content-max-width mx-auto px-container-padding relative z-10 text-center">
+<h2 class="font-headline-lg text-headline-lg text-text-on-dark mb-8 leading-tight">A decisão que separa os times <span class="italic font-light">medianos dos extraordinários</span></h2>
+<p class="text-body-lg text-text-on-dark/70 mb-12 max-w-2xl mx-auto">Cada dia sem método é dinheiro que vai para o concorrente. Escolha seu programa e comece agora.</p>
+<div class="flex flex-wrap justify-center gap-6 mb-12">
+<div class="p-8 bg-white/5 border border-white/10 rounded-lg min-w-[280px]">
+<p class="text-primary-fixed-dim font-bold mb-2">Fundações Comerciais</p>
+<p class="text-white text-headline-md font-bold mb-4">R$ 1.997</p>
+<a class="block w-full bg-accent-vibrant text-on-primary py-3 rounded-lg font-bold" href="#">Matricular Agora</a>
+</div>
+<div class="p-8 bg-white/10 border-2 border-accent-vibrant rounded-lg min-w-[280px] scale-105">
+<p class="text-accent-vibrant font-bold mb-2">⭐ Elite Closer</p>
+<p class="text-white text-headline-md font-bold mb-4">R$ 3.997</p>
+<a class="block w-full bg-accent-vibrant text-on-primary py-3 rounded-lg font-bold" href="#">Matricular Agora</a>
+</div>
+<div class="p-8 bg-white/5 border border-white/10 rounded-lg min-w-[280px]">
+<p class="text-primary-fixed-dim font-bold mb-2">Master &amp; Gestão</p>
+<p class="text-white text-headline-md font-bold mb-4">R$ 5.997</p>
+<a class="block w-full bg-accent-vibrant text-on-primary py-3 rounded-lg font-bold" href="#">Matricular Agora</a>
+</div>
+</div>
+<div class="flex flex-wrap justify-center gap-8 text-text-on-dark/50 font-label-caps text-[12px]">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">lock</span> Pagamento 100% seguro</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">shield</span> Garantia de 15 dias</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">credit_card</span> Até 12× sem juros</span>
+</div>
+</div>
+<!-- Abstract gradient -->
+<div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/10 to-transparent pointer-events-none"></div>
+</section>
+<!-- Footer -->
+<footer class="bg-on-background py-16 border-t border-white/5">
+<div class="max-w-content-max-width mx-auto px-container-padding grid md:grid-cols-2 lg:grid-cols-4 gap-12 text-center md:text-left">
+<div class="lg:col-span-2">
+<a class="font-headline-md text-headline-md text-surface-cream block mb-6" href="#">Sibele Oliveira</a>
+<p class="text-surface-cream/70 max-w-sm mb-8">O Art &amp; Science da Mentoria de Vendas Corporativas. Transformando potencial em performance real através de décadas de experiência executiva.</p>
+<div class="flex justify-center md:justify-start gap-4">
+<a class="text-surface-cream/50 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-surface-cream mb-6">CONTATO</h4>
+<ul class="space-y-4 text-surface-cream/70 text-body-md">
+<li class="flex items-center gap-3 justify-center md:justify-start">
+<span class="material-symbols-outlined text-primary text-sm">call</span>
+                        (43) 9 9168-0101
+                    </li>
+<li class="flex items-center gap-3 justify-center md:justify-start">
+<span class="material-symbols-outlined text-primary text-sm">mail</span>
+                        contato@sibeleoliveira.com
+                    </li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-surface-cream mb-6">LEGAL</h4>
+<ul class="space-y-4 text-surface-cream/70 text-body-md">
+<li><a class="hover:text-primary transition-colors" href="#">Mentorship Portal</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-content-max-width mx-auto px-container-padding mt-16 pt-8 border-t border-white/5 text-center">
+<p class="text-surface-cream/30 text-[12px] uppercase tracking-widest">
+                © 2024 Sibele Oliveira. The Art &amp; Science of Corporate Sales Mentorship.
+            </p>
+</div>
+</footer>
+<!-- WhatsApp Floating Button -->
+<a class="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform" href="https://wa.me/5543991680101">
+<span class="material-symbols-outlined text-3xl">chat</span>
+</a>
+</body></html>
